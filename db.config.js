@@ -1,7 +1,7 @@
 const config = {
-    user:'admin',
-    password:'admin69',
-    server:'localhost',
+    user:'sa',
+    password:'loveTRINH2l',
+    server:'l157.245.207.242',
     database:'phongkhachsan',
     options: {
         trustedconnection:true,

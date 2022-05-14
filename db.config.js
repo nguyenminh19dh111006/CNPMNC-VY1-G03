@@ -4,6 +4,7 @@ const config = {
     server:'157.245.207.242',
     database:'phongkhachsan',
     options: {
+        trustedconnection:true,
         enableArithAbort:true,
         instancename :'157.245.207.242',
         trustServerCertificate: true

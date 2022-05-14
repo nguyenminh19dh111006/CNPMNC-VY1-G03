@@ -1,5 +1,4 @@
 const config = {
-    driver:"msnodesqlv8",
     user:'sa',
     password:'loveTRINH2l',
     server:'157.245.207.242',

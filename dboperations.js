@@ -1,5 +1,5 @@
 var config = require('./db.config');
-const sql = require('mssql/msnodesqlv8');
+const sql = require('mssql');
 
 //PHONG
 async function getPhongs(){

@@ -2,7 +2,7 @@ const config = {
     user:'sa',
     password:'loveTRINH2l',
     server:'localhost',
-    database:'phongkhachsan',
+    database:'master',
     options: {
         trustedconnection:true,
         enableArithAbort:true,

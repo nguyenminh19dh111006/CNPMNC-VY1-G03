@@ -1,6 +1,6 @@
 const config = {
-    user:'sa',
-    password:'loveTRINH2l',
+    user:'root',
+    password:'root',
     server:'157.245.207.242',
     database:'phongkhachsan',
     options: {

@@ -36,6 +36,12 @@ router.route('/phong').post((request,response)=>{
         response.status(201).json(phong);
     })
 })
+
+router.route('/phong/:id').delete((request,response)=>{
+    dboperations.deletePhong(request.params.id).then(result =>{
+        response.status(202).send(result);
+    })
+})
 //DATPHONG
 
 router.route('/dskh').post((request,response)=>{

@@ -42,6 +42,18 @@ async function getPhongs(){
             console.log(err);
         }
     }
+    async function deletePhong(phongID){
+        try{
+            let pool = await sql.connect(config);
+            let deletePhong = await pool.request()
+                .input('input_parameter', sql.Int, phongID)
+                .query("delete from Phong where IdPhong = @input_parameter")
+            return deletePhong.recordsets;
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
 //DAT PHONG
 async function postDatPhong(datphong){
     try{
@@ -165,5 +177,6 @@ module.exports ={
     getKhachSanByHangSao : getKhachSanByHangSao,
     getDiaDiem : getDiaDiem,
     getDiaDiems : getDiaDiems,
-    getDiaDiemById : getDiaDiemById
+    getDiaDiemById : getDiaDiemById,
+    deletePhong : deletePhong
 }

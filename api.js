@@ -70,6 +70,13 @@ router.route('/diadiem/getDiaDiem/:id').get((request,response)=>{
         response.json(result[0]);
     })
 })
+//PARTNER
+
+router.route('/partner').get((request,response)=>{
+    dboperations.getPartners().then(result =>{
+        response.json(result[0]);
+    })
+})
 
 //KHACHSAN
 

@@ -1,13 +1,10 @@
 class Partner{
-    constructor(IdPartner,DanhSachKhachHang,ThayDoiQuyDinh,DanhSachPhong,DanhSachKhachSan,ThemVoucher,ThemMaGiamGia){
+    constructor(IdPartner,ThemKhachHang,XoaKhachHang,ThayDoiChinhSach,ThongKeDoanhThu){
         this.IdPartner = IdPartner;
-        this.DanhSachKhachHang = DanhSachKhachHang;
-        this.ThayDoiQuyDinh = ThayDoiQuyDinh;
-        this.DanhSachPhong = DanhSachPhong;
-        this.DanhSachKhachSan = DanhSachKhachSan;
-        this.ThemVoucher = ThemVoucher;
-        this.ThemMaGiamGia = ThemMaGiamGia;
-
+        this.ThemKhachHang = ThemKhachHang;
+        this.XoaKhachHang = XoaKhachHang;
+        this.ThayDoiChinhSach = ThayDoiChinhSach;
+        this.ThongKeDoanhThu = ThongKeDoanhThu;
     }
 }
 module.exports = Partner;

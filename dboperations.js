@@ -54,6 +54,18 @@ async function getPhongs(){
             console.log(err);
         }
     }
+//PARTNER
+async function getPartners(){
+    try{
+        let room = await sql.connect(config);
+        let getpartners = await room.request().query("SELECT * from Partner");
+        return getpartners.recordsets;
+    }
+    catch (error){
+        console.log(error);
+        }
+    }
+
 //DAT PHONG
 async function postDatPhong(datphong){
     try{
@@ -178,5 +190,6 @@ module.exports ={
     getDiaDiem : getDiaDiem,
     getDiaDiems : getDiaDiems,
     getDiaDiemById : getDiaDiemById,
-    deletePhong : deletePhong
+    deletePhong : deletePhong,
+    getPartners : getPartners
 }

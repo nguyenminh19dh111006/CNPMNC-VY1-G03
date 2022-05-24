@@ -58,8 +58,8 @@ async function getPhongs(){
 async function getPartners(){
     try{
         let room = await sql.connect(config);
-        let getpartners = await room.request().query("SELECT * from Partner");
-        return getpartners.recordsets;
+        let phongkhachsan = await room.request().query("SELECT * from Partner");
+        return phongkhachsan.recordsets;
     }
     catch (error){
         console.log(error);

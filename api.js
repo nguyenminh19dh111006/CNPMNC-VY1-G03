@@ -73,7 +73,7 @@ router.route('/diadiem/getDiaDiem/:id').get((request,response)=>{
 //PARTNER
 
 router.route('/partner').get((request,response)=>{
-    dboperations.getPhongs().then(result =>{
+    dboperations.getPartners().then(result =>{
         response.json(result[0]);
     })
 })

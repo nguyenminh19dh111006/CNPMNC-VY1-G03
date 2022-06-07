@@ -1,13 +1,13 @@
 class DatPhong{
-    constructor(IdPhong,ChiTietGia,ChinhSachHuyPhong,ChinhSachDatPhong,TuyChonTienNghi,LoaiHinhCuTru,YeuCauDacBiet){
-        this.IdPhong = IdPhong;
-        this.ChiTietGia = ChiTietGia;
-        this.ChinhSachDatPhong = ChinhSachDatPhong;
-        this.ChinhSachHuyPhong = ChinhSachHuyPhong;
-        this.TuyChonTienNghi = TuyChonTienNghi;
-        this.LoaiHinhCuTru = LoaiHinhCuTru;
-        this.YeuCauDacBiet = YeuCauDacBiet;
-
+    constructor(IdKhachSan, IdDiaDiem, IdKhachHang, SoDiDong, TenNguoiLienHe, CVV, HieuLuc, SoThe){
+        this.IdKhachSan = IdKhachSan;
+        this.IdDiaDiem = IdDiaDiem;
+        this.IdKhachHang = IdKhachHang;
+        this.SoDiDong = SoDiDong;
+        this.TenNguoiLienHe = TenNguoiLienHe;
+        this.CVV = CVV;
+        this.HieuLuc = HieuLuc;
+        this.SoThe = SoThe;
     }
 }
 module.exports = DatPhong;

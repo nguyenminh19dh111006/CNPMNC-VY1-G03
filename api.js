@@ -51,6 +51,14 @@ router.route('/dskh').post((request,response)=>{
     })
 })
 
+//KHACH HANG
+
+router.route('/khachhang').get((request,response)=>{
+    dboperations.getKhachHangs().then(result =>{
+        response.json(result[0]);
+    })
+})
+
 //DIA DIEM
 
 router.route('/diadiem').get((request,response)=>{
@@ -78,6 +86,36 @@ router.route('/partner').get((request,response)=>{
     })
 })
 
+router.post("/partner", (req, res)=>{
+    let order = {...req.body}
+
+    dboperations.RegisterPartner(order).then(result =>{
+        res.status(201).send(result);
+    })
+})
+
+router.post("/partner-login", (req, res)=>{
+    let order = {...req.body}
+
+    dboperations.LoginPartner(order).then(result =>{
+        res.status(203).send(result[0][0]);
+    })
+})
+//DAT PHONG
+
+router.route('/datphong').get((request,response)=>{
+    dboperations.getDatPhongs().then(result =>{
+        response.json(result[0]);
+    })
+})
+
+router.post("/datphong", (req, res)=>{
+    let order = {...req.body}
+
+    dboperations.postDatPhongs(order).then(result =>{
+        res.status(201).send(result);
+    })
+})
 //KHACHSAN
 
 router.route('/khachsan').get((request,response)=>{

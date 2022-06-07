@@ -1,10 +1,12 @@
 class Partner{
-    constructor(IdPartner,ThemKhachHang,XoaKhachHang,ThayDoiChinhSach,ThongKeDoanhThu){
+    constructor(IdPartner,TenKhachSan,TenPhong,ThayDoiChinhSach,TenTaiKhoan,MatKhau){
         this.IdPartner = IdPartner;
-        this.ThemKhachHang = ThemKhachHang;
-        this.XoaKhachHang = XoaKhachHang;
+        this.TenKhachSan = TenKhachSan;
+        this.TenPhong = TenPhong;
         this.ThayDoiChinhSach = ThayDoiChinhSach;
-        this.ThongKeDoanhThu = ThongKeDoanhThu;
+        this.TenTaiKhoan = TenTaiKhoan;
+        this.MatKhau = MatKhau;
+
     }
 }
 module.exports = Partner;

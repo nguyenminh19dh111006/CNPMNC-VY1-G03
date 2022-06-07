@@ -54,18 +54,6 @@ async function getPhongs(){
             console.log(err);
         }
     }
-//PARTNER
-async function getPartners(){
-    try{
-        let room = await sql.connect(config);
-        let phongkhachsan = await room.request().query("SELECT * from Partner");
-        return phongkhachsan.recordsets;
-    }
-    catch (error){
-        console.log(error);
-        }
-    }
-
 //DAT PHONG
 async function postDatPhong(datphong){
     try{
@@ -147,6 +135,19 @@ async function getKhachSans(){
         }
     }
 
+    async function deleteKhachSan(khachsanID){
+        try{
+            let pool = await sql.connect(config);
+            let deleteKhachSan = await pool.request()
+                .input('input_parameter', sql.Int, khachsanID)
+                .query("delete from KhachSan where IdKhachSan = @input_parameter")
+            return deleteKhachSan.recordsets;
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
     async function getKhachSanByHangSao(khachsanID){
         try{
             let room = await sql.connect(config);
@@ -177,7 +178,88 @@ async function getKhachSans(){
             console.log(err);
         }
     }
-
+//KHACH HANG
+async function getKhachHangs(){
+    try{
+        let room = await sql.connect(config);
+        let khachhangs = await room.request().query("SELECT * from KhachHang");
+        return khachhangs.recordsets;
+    }
+    catch (error){
+        console.log(error);
+        }
+    }
+//PARTNER
+async function getPartners(){
+    try{
+        let room = await sql.connect(config);
+        let partners = await room.request().query("SELECT * from Partner");
+        return partners.recordsets;
+    }
+    catch (error){
+        console.log(error);
+        }
+    }
+    async function RegisterPartner(partner){
+        try{
+            let pool = await sql.connect(config);
+            let partnerregis = await pool.request()
+                .input('IdPartner', sql.Int, partner.IdPartner)
+                .input('TenKhachSan', sql.VarChar, partner.TenKhachSan)
+                .input('TenPhong', sql.VarChar,partner.TenPhong)
+                .input('ThayDoiChinhSach',sql.VarChar,partner.ThayDoiChinhSach)
+                .input('TenTaiKhoan', sql.NVarChar,partner.TenTaiKhoan)
+                .input('MatKhau', sql.NVarChar,partner.MatKhau)
+                .execute('InsertPartner');
+            return partnerregis.recordsets;
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+    async function LoginPartner(partner){
+        try{
+            let pool = await sql.connect(config);
+            let partnerlogin = await pool.request()
+                .input('TenTaiKhoan', sql.NVarChar, partner.username)
+                .input('MatKhau', sql.NVarChar, partner.password)
+                .query("SELECT * FROM Partner WHERE TenTaiKhoan = @TenTaiKhoan AND MatKhau = @MatKhau");
+            return partnerlogin.recordsets;
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+//DAT PHONG
+async function getDatPhongs(){
+    try{
+        let room = await sql.connect(config);
+        let datphongs = await room.request().query("SELECT * from DatPhongKhachSan");
+        return datphongs.recordsets;
+    }
+    catch (error){
+        console.log(error);
+        }
+    }
+    async function postDatPhongs(datphong){
+        try{
+            let pool = await sql.connect(config);
+            let postdatphongks = await pool.request()
+                .input('IdKhachHang', sql.Int, datphong.IdKhachHang)
+                .input('IdDiaDiem', sql.Int, datphong.IdDiaDiem)
+                .input('IdKhachSan', sql.Int,datphong.IdKhachSan)
+                .input('SoDiDong',sql.NVarChar,datphong.SoDiDong)
+                .input('TenNguoiLienHe', sql.NVarChar,datphong.TenNguoiLienHe)
+                .input('CVV', sql.Decimal,datphong.CVV)
+                .input('HieuLuc', sql.DateTime,datphong.HieuLuc)
+                .input('SoThe', sql.NVarChar,datphong.SoThe)
+                .execute('InsertDatPhong');
+            return postdatphongks.recordsets;
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
 module.exports ={
     getPhongs : getPhongs,
     getPhong : getPhong,
@@ -191,5 +273,11 @@ module.exports ={
     getDiaDiems : getDiaDiems,
     getDiaDiemById : getDiaDiemById,
     deletePhong : deletePhong,
-    getPartners : getPartners
+    deleteKhachSan : deleteKhachSan,
+    getKhachHangs : getKhachHangs,
+    getPartners : getPartners,
+    RegisterPartner : RegisterPartner,
+    LoginPartner : LoginPartner,
+    getDatPhongs : getDatPhongs,
+    postDatPhongs : postDatPhongs,
 }

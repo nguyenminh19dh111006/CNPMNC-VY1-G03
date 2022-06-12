@@ -134,7 +134,7 @@ router.route('/khachsan/getHangSao/:id').get((request,response)=>{
         response.json(result[0]);
     })
 })
-router.route('/khachsan/getDiaDiem/:id').get((request,response)=>{
+router.route('/khachsan/getDiaDiems/:id').get((request,response)=>{
     dboperations.getKhachSanByDiaDiem(request.params.id).then(result =>{
         response.json(result[0]);
     })

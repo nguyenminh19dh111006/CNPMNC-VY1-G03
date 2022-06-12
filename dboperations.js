@@ -166,7 +166,7 @@ async function getKhachSans(){
             let room = await sql.connect(config);
             let khachsangetss = await room.request()
             .input('input_parameter', sql.Int, diadiemksID)
-            .query("SELECT * from KhachSan where IdDiaDiem = @input_parameter");
+            .query("SELECT * from KhachSan where MaDiaDiem = @input_parameter");
             return khachsangetss.recordsets;
         }
         catch (error){

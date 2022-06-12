@@ -8,7 +8,7 @@ class Phong{
         this.SoLuongNguoi = SoLuongNguoi;
         this.LoaiPhong = LoaiPhong;
         this.IdKhachSan = IdKhachSan;
-        this.IdDiaDiem = IdDiaDiem
+        this.IdDiaDiem = IdDiaDiem;
     }
 }
 module.exports = Phong;

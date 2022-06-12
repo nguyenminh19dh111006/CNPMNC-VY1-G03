@@ -161,6 +161,19 @@ async function getKhachSans(){
         }
     }
 
+    async function getKhachSanByDiaDiem(diadiemksID){
+        try{
+            let room = await sql.connect(config);
+            let khachsangetss = await room.request()
+            .input('input_parameter', sql.Int, diadiemksID)
+            .query("SELECT * from KhachSan where IdDiaDiem = @input_parameter");
+            return khachsangetss.recordsets;
+        }
+        catch (error){
+            console.log(error);
+        }
+    }
+
     async function postKhachSan(khachsan){
         try{
             let room = await sql.connect(config);
@@ -280,4 +293,5 @@ module.exports ={
     LoginPartner : LoginPartner,
     getDatPhongs : getDatPhongs,
     postDatPhongs : postDatPhongs,
+    getKhachSanByDiaDiem : getKhachSanByDiaDiem
 }

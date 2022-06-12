@@ -29,6 +29,8 @@ async function getPhongs(){
             let room = await sql.connect(config);
             let insertPhong = await room.request()
             .input('IdPhong', sql.Int, phong.IdPhong)
+            .input('IdKhachSan', sql.Int, phong.IdKhachSan)
+            .input('IdDiaDiem', sql.Int, phong.IdDiaDiem)
             .input('TenPhong', sql.VarChar, phong.TenPhong)
             .input('LoaiPhong', sql.VarChar, phong.LoaiPhong)
             .input('ThoiGianNhanPhong', sql.DateTime, phong.ThoiGianNhanPhong)
